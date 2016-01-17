@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<context:component-scan base-package="com.coding_exercise" />
+	<context:annotation-config/>
+
+	<bean id="salesTaxCalculator" class="com.coding_exercise.tax.SalesTaxCalculatorImpl" />
+	<bean id="importDutyCalculator" class="com.coding_exercise.tax.ImportDutyCalculatorImpl" />
+	<bean id="utils" class="com.coding_exercise.util.Utils" />
+	
+	
+	<!--  http://www.mkyong.com/spring/spring-collections-list-set-map-and-properties-example/ -->
+	<bean id="itemList" class="com.coding_exercise.data.ItemList">
+		<property name="itemListList">
+			<list>
+				<list>
+					<bean class="com.coding_exercise.item.ItemImpl">
+						<property name="name" value="book" />
+						<property name="type">
+							<value type="com.coding_exercise.item.ItemType">BOOK</value>
+						</property>
+						<property name="price" value="12.49" />
+						<property name="imported" value="false" />
+					</bean>
+					<bean class="com.coding_exercise.item.ItemImpl">
+						<property name="name" value="music CD" />
+						<property name="type">
+							<value type="com.coding_exercise.item.ItemType">OTHER</value>
+						</property>
+						<property name="price" value="14.99" />
+						<property name="imported" value="false" />
+					</bean>
+					<bean class="com.coding_exercise.item.ItemImpl">
+						<property name="name" value="chocolate bar" />
+						<property name="type">
+							<value type="com.coding_exercise.item.ItemType">FOOD</value>
+						</property>
+						<property name="price" value="0.85" />
+						<property name="imported" value="false" />
+					</bean>
+				</list>
+
+				<list>
+					<bean class="com.coding_exercise.item.ItemImpl">
+						<property name="name" value="imported box of chocolates" />
+						<property name="type">
+							<value type="com.coding_exercise.item.ItemType">FOOD</value>
+						</property>
+						<property name="price" value="10.00" />
+						<property name="imported" value="true" />
+					</bean>
+					<bean class="com.coding_exercise.item.ItemImpl">
+						<property name="name" value="imported bottle of perfume" />
+						<property name="type">
+							<value type="com.coding_exercise.item.ItemType">OTHER</value>
+						</property>
+						<property name="price" value="47.50" />
+						<property name="imported" value="true" />
+					</bean>
+				</list>
+
+				<list>
+					<bean class="com.coding_exercise.item.ItemImpl">
+						<property name="name" value="imported bottle of perfume" />
+						<property name="type">
+							<value type="com.coding_exercise.item.ItemType">OTHER</value>
+						</property>
+						<property name="price" value="27.99" />
+						<property name="imported" value="true" />
+					</bean>
+					<bean class="com.coding_exercise.item.ItemImpl">
+						<property name="name" value="bottle of perfume" />
+						<property name="type">
+							<value type="com.coding_exercise.item.ItemType">OTHER</value>
+						</property>
+						<property name="price" value="18.99" />
+						<property name="imported" value="false" />
+					</bean>
+					<bean class="com.coding_exercise.item.ItemImpl">
+						<property name="name" value="packet of headache pills" />
+						<property name="type">
+							<value type="com.coding_exercise.item.ItemType">MEDICAL_PRODUCT</value>
+						</property>
+						<property name="price" value="9.75" />
+						<property name="imported" value="false" />
+					</bean>
+					<bean class="com.coding_exercise.item.ItemImpl">
+						<property name="name" value="box of imported chocolates" />
+						<property name="type">
+							<value type="com.coding_exercise.item.ItemType">FOOD</value>
+						</property>
+						<property name="price" value="11.25" />
+						<property name="imported" value="true" />
+					</bean>
+				</list>
+			</list>
+		</property>
+	</bean>
+	
+</beans>

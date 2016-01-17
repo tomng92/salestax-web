@@ -1,0 +1,56 @@
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Coding exercice: List Query</title>
+    </h:head>
+    <h:body>
+       <h3>Sales Tax Coding exercice: List Query</h3>
+       
+       
+       
+       	<h:form>
+		</h:form>
+       
+		<h:form id="queryForm">
+
+<!-- 	   		<p:editor value="#{editor.value}" /> -->
+<!-- 	   		<hr/> -->
+
+
+			<h:outputLabel value="Please select list to display: " />
+						
+<!-- 				<h:selectOneListbox id="selectionBox3"  value="#{itemListService.selectedList}" size="1"> -->
+<!-- 				    <f:selectItems value="#{itemListService.availableLists}"/>  -->
+<!-- 	   				<f:selectItem itemValue="ALL" itemLabel="ALL"/> -->
+<!-- 	   			</h:selectOneListbox> -->
+ 
+				<h:selectOneMenu value="#{itemListService.selectedList}">
+				
+					<!-- http://stackoverflow.com/questions/24834902/primefaces-ajax-listener-in-selectonemenu-tag-is-not-working-with-viewparam -->
+					
+					<ui:remove>
+						<p:ajax listener="#{itemListService.onValueChange}" update="city" />
+					</ui:remove>
+					
+					
+					
+					
+				    <f:selectItems value="#{itemListService.availableLists}"/> 
+	   				<f:selectItem itemValue="ALL" itemLabel="ALL"/>
+	   			</h:selectOneMenu>
+ 
+			<br/>
+			<br/>
+
+			<h:commandButton value="Submit" action="#{itemListService.fetchList}" />
+		</h:form>
+		
+		
+		
+    </h:body>
+</html>

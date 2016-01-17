@@ -1,0 +1,57 @@
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Sales Tax Coding exercise: List Display</title>
+    </h:head>
+    
+    <h:body>
+       <h3>Coding exercise: List Display</h3>
+       
+       List queried: <h:outputText value="#{itemListService.selectedList == 'ALL' ? 'ALL': itemListService.selectedList + 1}" />
+
+       <br/>
+       <br/>
+       
+		<h:form id="displayForm">
+
+			<ui:repeat var="showList" value="#{itemListService.showResults}">
+
+				<h:panelGrid columns="1" border="0">
+					<f:facet name="header">
+						<h:outputText value="Input #{showList.name}"/>
+						<hr/>
+					</f:facet>
+					
+					
+					<h:dataTable id="listLeftRigt" var="itemRow" value="#{showList.items}"> <!--  itemRow is a map -->
+					    <h:column>
+					      <h:outputText value="#{itemRow['leftside']}"/>
+					    </h:column>
+					    <h:column>
+					      <h:outputText value="#{itemRow['rightside']}"/>
+					    </h:column>
+					  </h:dataTable>
+
+					<f:facet name="footer">
+						<hr/>
+					</f:facet>
+					
+				</h:panelGrid>
+				
+				<br/>
+				
+			</ui:repeat>
+			
+			<br/>
+			<br/>
+
+			<h:button outcome="queryList" value="Back to list query" />
+		</h:form>
+		
+		
+		
+    </h:body>
+</html>
