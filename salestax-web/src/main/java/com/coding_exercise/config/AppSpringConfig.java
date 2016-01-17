@@ -1,5 +1,8 @@
 package com.coding_exercise.config;
 
+/**
+ * Test git: just add comment
+ */
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
